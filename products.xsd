@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.thewalking.com/products" 
+	xmlns="http://www.thewalking.com/products">
+<xsd:element name="PRODUCT" type="producttype"/>
+	
+<xsd:complexType name="producttype">
+	<xsd:sequence>
+		<xsd:element name="ID" type="xsd:int"/>
+		<xsd:element name="NAME" type="xsd:string"/>
+		<xsd:element name="CATEGORY" type="categorytype"/>
+	</xsd:sequence>			
+</xsd:complexType>
+
+
+<xsd:complexType name="categorytype">
+	<xsd:all>
+		<xsd:element name="CATEGORY_ID" type="xsd:int"/>
+		<xsd:element name="CATEGORY_NAME" type="xsd:string"/>
+	</xsd:all>
+</xsd:complexType>
+</xsd:schema>
