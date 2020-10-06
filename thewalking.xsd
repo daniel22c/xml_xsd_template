@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.thewalking.com/orders" 
+	xmlns="http://www.thewalking.com/orders">
+<xsd:element name="ORDER" type="ordertype"/>
+
+<xsd:complexType name="ordertype">
+	<xsd:sequence>
+		<xsd:element name="ORDER_DATE" type="xsd:date"/>
+		<xsd:element name="ITEMS" type="itemstype"/>
+		<xsd:element name="CUSTOMER" type="customertype"/>
+	</xsd:sequence>			
+	<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="itemstype">
+	<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+		<xsd:element name="ITEM" type="itemtype"/>
+	</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="itemtype">
+	<xsd:sequence>
+		<xsd:element name="ID" type="xsd:int"/>
+		<xsd:element name="DESC" type="xsd:string"/>
+		<xsd:element name="QTY" type="xsd:int"/>
+		<xsd:element name="PRICE" type="xsd:decimal"/>
+	</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="customertype">
+	<xsd:sequence>
+		<xsd:element name="ID" type="xsd:int"/>
+		<xsd:element name="NAME" type="xsd:string"/>
+		<xsd:element name="ADDRESS" type="addresstype"/>
+	</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="addresstype">
+	<xsd:sequence>
+		<xsd:element name="SHIPPING_ADDRESS" type="shippingtype"/>
+		<xsd:element name="BILLING_ADDRESS" type="shippingtype"/>
+	</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="shippingtype">
+	<xsd:sequence>
+		<xsd:element name="LINE" type="xsd:string"/>
+		<xsd:element name="CITY" type="xsd:string"/>
+		<xsd:element name="STATE" type="xsd:string"/>
+		<xsd:element name="ZIP" type="xsd:string"/>
+	</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
